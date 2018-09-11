@@ -1,0 +1,48 @@
+disabled_rules:
+  - trailing_whitespace
+  - file_length
+opt_in_rules:
+  - closure_end_indentation
+  - closure_spacing
+  - empty_count
+  - nimble_operator
+  - number_separator
+  - switch_case_on_newline
+excluded:
+  - Pods
+  - vendor
+  - Carthage
+type_body_length:
+  - 400
+  - 600
+function_body_length:
+  - 150
+  - 200
+line_length:
+  - 500
+number_separator:
+  minimum_length: 5
+cyclomatic_complexity:
+  warning: 15
+identifier_name:
+  min_length:
+    error: 4
+  excluded:
+    - id
+    - ids
+    - key
+    - dot
+    - top
+    - row
+    - lhs
+    - rhs
+    - hex
+    - end
+    - url
+    - kml
+    - age
+    - sex
+    - max
+    - red
+    - to
+    - now
