@@ -47,7 +47,7 @@ final class MovieListViewController: UIViewController {
             guard success else {
                 return
             }
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 guard let strongSelf = self else {
                     return
                 }

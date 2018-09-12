@@ -21,7 +21,7 @@ class DataManager {
         let url = URL(string: "https://yink.dk/ios-course-movies/movies")!
         
         self.moviesTask?.cancel()
-        let task = session.dataTask(with: url) { [weak self] data, response, error in
+        let task = session.dataTask(with: url) { [weak self] data, response, _ in
             guard let response = response as? HTTPURLResponse else {
                 completionHandler(false)
                 return
@@ -57,7 +57,7 @@ class DataManager {
         let url = URL(string: "https://yink.dk/ios-course-movies/actors")!
         
         self.actorsTask?.cancel()
-        let task = session.dataTask(with: url) { [weak self] data, response, error in
+        let task = session.dataTask(with: url) { [weak self] data, response, _ in
             guard let response = response as? HTTPURLResponse else {
                 completionHandler(false)
                 return
