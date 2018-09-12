@@ -9,6 +9,12 @@
 import UIKit
 
 final class MovieDetailsViewController: UIViewController {
+    private lazy var movieHeader: MovieHeaderView = {
+        let view = MovieHeaderView()
+        view.delegate = self
+        return view
+    }()
+    
     let movie: Movie
 
     init(movie: Movie) {
@@ -26,6 +32,17 @@ final class MovieDetailsViewController: UIViewController {
         self.title = movie.title
         
         view.backgroundColor = .white
+        
+        view.addSubview(movieHeader)
+        movieHeader.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview().inset(70)
+        }
         // Insert view code
+    }
+}
+
+extension MovieDetailsViewController: MovieHeaderViewDelegate {
+    func headerView(_ headerView: MovieHeaderView, didPressMovieWithId id: Int) {
+        print(id)
     }
 }

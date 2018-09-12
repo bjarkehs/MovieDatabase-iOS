@@ -89,7 +89,9 @@ final class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        let movie = movies[indexPath.item]
+        let detailsViewController = MovieDetailsViewController(movie: movie)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
