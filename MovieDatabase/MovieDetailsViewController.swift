@@ -23,6 +23,8 @@ final class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = movie.title
+        
         view.backgroundColor = .white
         // Insert view code
     }
