@@ -27,13 +27,14 @@ final class MovieListViewController: UIViewController {
         return button
     }()
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Foo")
-        tableView.dataSource = self
-        tableView.delegate = self
-        return tableView
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.register(MovieCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.backgroundColor = .white
+        return collectionView
     }()
     
     var movies: [Movie] = []
@@ -54,8 +55,8 @@ final class MovieListViewController: UIViewController {
 //            make.centerX.equalToSuperview()
 //        }
         
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
@@ -69,7 +70,7 @@ final class MovieListViewController: UIViewController {
                 }
                 
                 strongSelf.movies = DataManager.shared.movies
-                strongSelf.tableView.reloadData()
+                strongSelf.collectionView.reloadData()
 //                strongSelf.movieTitle.text = DataManager.shared.movies.first?.title
 //                strongSelf.firstMovieButton.isEnabled = DataManager.shared.movies.isEmpty == false
             }
@@ -86,24 +87,29 @@ final class MovieListViewController: UIViewController {
 
 }
 
-extension MovieListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movie = self.movies[indexPath.row]
-        let detailsViewController = MovieDetailsViewController(movie: movie)
-        self.navigationController?.pushViewController(detailsViewController, animated: true)
+extension MovieListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 60)
     }
 }
 
-extension MovieListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension MovieListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.movies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
-        let movie = self.movies[indexPath.row]
-        cell.textLabel?.text = movie.title
+        let movie = self.movies[indexPath.item]
+        
+        if let movieCell = cell as? MovieCell {
+            movieCell.configure(with: movie)
+        }
         
         return cell
     }

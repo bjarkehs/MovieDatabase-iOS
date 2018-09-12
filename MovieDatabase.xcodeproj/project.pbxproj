@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5148326D214910D1003F090C /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5148326C214910D1003F090C /* MovieCell.swift */; };
 		5194B8142148443D00FEBD4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5194B8132148443D00FEBD4F /* AppDelegate.swift */; };
 		5194B8162148443D00FEBD4F /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5194B8152148443D00FEBD4F /* MovieListViewController.swift */; };
 		5194B81B2148443E00FEBD4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5194B81A2148443E00FEBD4F /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5148326C214910D1003F090C /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		5194B8102148443D00FEBD4F /* MovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5194B8132148443D00FEBD4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5194B8152148443D00FEBD4F /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				5194B8132148443D00FEBD4F /* AppDelegate.swift */,
 				5194B8152148443D00FEBD4F /* MovieListViewController.swift */,
 				5194B84F214848F500FEBD4F /* MovieDetailsViewController.swift */,
+				5148326C214910D1003F090C /* MovieCell.swift */,
 				5194B849214845C000FEBD4F /* Models */,
 				5194B847214845BB00FEBD4F /* DataManager.swift */,
 				5194B81A2148443E00FEBD4F /* Assets.xcassets */,
@@ -325,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5148326D214910D1003F090C /* MovieCell.swift in Sources */,
 				5194B8162148443D00FEBD4F /* MovieListViewController.swift in Sources */,
 				5194B848214845BB00FEBD4F /* DataManager.swift in Sources */,
 				5194B850214848F500FEBD4F /* MovieDetailsViewController.swift in Sources */,
