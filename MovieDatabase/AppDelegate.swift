@@ -13,16 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        let window = UIWindow()
-        self.window = window
-        
-        let rootViewController = MovieListViewController()
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-        
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         return true
     }
