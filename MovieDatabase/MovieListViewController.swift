@@ -49,22 +49,13 @@ final class MovieListViewController: UIViewController {
             self.tableView.deselectRow(at: selectedRow, animated: animated)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = self.tableView.indexPathForSelectedRow else {
-            return
-        }
-        
-        // swiftlint:disable:next force_cast
-        let destinationViewController = segue.destination as! MovieDetailsViewController
-        let movie = self.movies[indexPath.row]
-        destinationViewController.movie = movie
-    }
 }
 
 extension MovieListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowMovie", sender: nil)
+        let movie = self.movies[indexPath.row]
+        let movieDetailsViewController = MovieDetailsViewController(movie: movie)
+        self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }
 
