@@ -9,21 +9,13 @@
 import UIKit
 
 final class MovieDetailsViewController: UIViewController {
-    let movie: Movie
-
-    init(movie: Movie) {
-        self.movie = movie
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var movie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = movie?.title
+        
         view.backgroundColor = .white
-        // Insert view code
     }
 }
